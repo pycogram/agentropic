@@ -9,327 +9,125 @@
 
 Agentropic is a comprehensive framework for building autonomous, intelligent multi-agent systems in Rust. This is the main "batteries-included" crate that re-exports all components of the Agentropic ecosystem, providing everything you need to build production-ready agentic applications.
 
+> ⚠️ **Status: Active Development** - Agentropic is currently under active development. APIs may change before the 1.0 release.
+
 ---
 
 ## 🎯 What is Agentropic?
 
 Agentropic enables you to build software systems composed of **autonomous agents** that:
 
-- **Think**: Use BDI (Belief-Desire-Intention) cognitive architecture for reasoning and planning
-- **Communicate**: Exchange messages using standardized Agent Communication Language (ACL)
-- **Coordinate**: Work together using proven multi-agent patterns (hierarchy, swarm, market-based)
-- **Execute**: Run efficiently with isolation, scheduling, and fault tolerance
-- **Deploy**: Ship to production with comprehensive tooling and orchestration
+- 🤖 **Think** - Use BDI (Belief-Desire-Intention) cognitive architecture for reasoning and planning
+- 💬 **Communicate** - Exchange messages using standardized Agent Communication Language (ACL)
+- 🤝 **Coordinate** - Work together using proven multi-agent patterns (hierarchy, swarm, market-based)
+- ⚡ **Execute** - Run efficiently with isolation, scheduling, and fault tolerance
+- 🚀 **Deploy** - Ship to production with comprehensive tooling and orchestration
+
+---
+
+## 📊 Project Progress
+
+| Crate | Status | Description | Repository |
+|-------|--------|-------------|------------|
+| **agentropic-core** | ✅ Complete | Agent primitives, traits, lifecycle | [Link](https://github.com/agentropic/agentropic-core) |
+| **agentropic-messaging** | ✅ Complete | Communication protocols, routing, ACL | [Link](https://github.com/agentropic/agentropic-messaging) |
+| **agentropic-cognition** | 🔄 In Progress | Reasoning, planning, BDI, decision-making | [Link](https://github.com/agentropic/agentropic-cognition) |
+| **agentropic-patterns** | ⏳ Planned | Multi-agent patterns (hierarchy, swarm, market) | [Link](https://github.com/agentropic/agentropic-patterns) |
+| **agentropic-runtime** | ⏳ Planned | Execution engine, scheduler, isolation | [Link](https://github.com/agentropic/agentropic-runtime) |
+| **agentropic-deploy** | ⏳ Planned | Deployment tools, orchestration, CLI | [Link](https://github.com/agentropic/agentropic-deploy) |
+| **agentropic-tools** | ⏳ Planned | Testing frameworks, benchmarks, utilities | [Link](https://github.com/agentropic/agentropic-tools) |
+| **agentropic-examples** | ⏳ Planned | Example applications and tutorials | [Link](https://github.com/agentropic/agentropic-examples) |
+| **agentropic-docs** | ⏳ Planned | Documentation site | [Link](https://github.com/agentropic/agentropic-docs) |
+
+**Overall Progress:** 20% Complete 🚀
 
 ---
 
 ## ✨ Features
 
-### Core Capabilities
+### Completed ✅
 
 - 🤖 **Agent Primitives** - Clean abstractions for autonomous agents
+- 🆔 **Identity System** - UUID-based agent identification
 - 💬 **Message Passing** - FIPA-inspired communication protocols
-- 🧠 **Cognitive Architecture** - BDI reasoning, planning, and decision-making
-- 🏗️ **Organizational Patterns** - Hierarchy, teams, swarms, markets, coalitions
-- ⚡ **High-Performance Runtime** - Async execution with scheduling and isolation
+- 📮 **Mailboxes & Routing** - Efficient message delivery
+- 🎭 **Performatives** - Speech acts (Inform, Request, Query, etc.)
+
+### In Development 🔄
+
+- 🧠 **BDI Architecture** - Belief-Desire-Intention cognitive model
+- 📊 **Planning** - Goal-oriented action planning (STRIPS, HTN)
+- 🤔 **Reasoning** - Logical inference and rule-based reasoning
+- 🎯 **Decision-Making** - Utility-based and probabilistic decisions
+
+### Coming Soon ⏳
+
+- 🏗️ **Organizational Patterns** - Hierarchy, teams, swarms, markets
+- ⚡ **High-Performance Runtime** - Async execution with scheduling
+- 🛡️ **Isolation** - Resource limits and sandboxing
 - 🚀 **Production Deployment** - CLI tools, orchestration, monitoring
-- 🧪 **Testing & Tools** - Comprehensive testing, mocking, and benchmarking
-
-### Why Agentropic?
-
-| Feature | Agentropic | Traditional Frameworks |
-|---------|------------|----------------------|
-| **Language** | Rust 🦀 |
-| **Performance** | Native, zero-cost abstractions | Interpreted/JVM overhead |
-| **Safety** | Memory-safe, thread-safe | Runtime errors |
-| **Concurrency** | Async/await, fearless | GIL, complex threading |
-| **Production-Ready** | Built-in deployment tools | DIY infrastructure |
-| **Type System** | Strong static typing | Dynamic/weak typing |
+- 🧪 **Testing & Tools** - Comprehensive testing and benchmarking
 
 ---
 
 ## 🚀 Quick Start
 
-### Installation
+> **Note:** Currently, you need to use individual crates. The unified `agentropic` facade will be available once more components are complete.
 
-Add Agentropic to your `Cargo.toml`:
+### Using Individual Crates (Current)
+```toml
+[dependencies]
+agentropic-core = "0.1.0"
+agentropic-messaging = "0.1.0"
+tokio = { version = "1.0", features = ["full"] }
+```
+```rust
+use agentropic_core::prelude::*;
+use agentropic_messaging::prelude::*;
+
+struct MyAgent {
+    id: AgentId,
+}
+
+#[async_trait]
+impl Agent for MyAgent {
+    fn id(&self) -> &AgentId {
+        &self.id
+    }
+
+    async fn initialize(&mut self, ctx: &AgentContext) -> AgentResult<()> {
+        ctx.log_info("Agent initialized");
+        Ok(())
+    }
+
+    async fn execute(&mut self, ctx: &AgentContext) -> AgentResult<()> {
+        ctx.log_info("Agent executing");
+        Ok(())
+    }
+
+    async fn shutdown(&mut self, ctx: &AgentContext) -> AgentResult<()> {
+        ctx.log_info("Agent shutting down");
+        Ok(())
+    }
+}
+```
+
+### Future (Unified Facade - Coming Soon)
 ```toml
 [dependencies]
 agentropic = "0.1.0"
-tokio = { version = "1.0", features = ["full"] }
 ```
-
-### Hello World Agent
 ```rust
 use agentropic::prelude::*;
 
-struct HelloAgent {
-    id: AgentId,
-}
-
-impl HelloAgent {
-    fn new() -> Self {
-        Self {
-            id: AgentId::new(),
-        }
-    }
-}
-
-#[async_trait]
-impl Agent for HelloAgent {
-    fn id(&self) -> &AgentId {
-        &self.id
-    }
-
-    async fn initialize(&mut self, ctx: &AgentContext) -> AgentResult<()> {
-        ctx.log_info("Hello, Agentropic!");
-        Ok(())
-    }
-
-    async fn execute(&mut self, ctx: &AgentContext) -> AgentResult<()> {
-        ctx.log_info("Agent is running...");
-        Ok(())
-    }
-
-    async fn shutdown(&mut self, ctx: &AgentContext) -> AgentResult<()> {
-        ctx.log_info("Goodbye!");
-        Ok(())
-    }
-}
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // Create runtime
-    let runtime = Runtime::new(RuntimeConfig::default())?;
-    
-    // Spawn agent
-    let agent = HelloAgent::new();
-    let handle = runtime.spawn(agent).await?;
-    
-    // Wait for completion
-    handle.await?;
-    
-    Ok(())
-}
-```
-
-Run it:
-```bash
-cargo run
-```
-
----
-
-## 📚 Examples
-
-### Multi-Agent Communication
-```rust
-use agentropic::prelude::*;
-
-struct SenderAgent {
-    id: AgentId,
-    receiver: AgentId,
-}
-
-struct ReceiverAgent {
-    id: AgentId,
-    mailbox: Mailbox,
-}
-
-#[async_trait]
-impl Agent for SenderAgent {
-    fn id(&self) -> &AgentId {
-        &self.id
-    }
-
-    async fn initialize(&mut self, _ctx: &AgentContext) -> AgentResult<()> {
-        Ok(())
-    }
-
-    async fn execute(&mut self, ctx: &AgentContext) -> AgentResult<()> {
-        // Send message
-        let msg = MessageBuilder::new()
-            .sender(self.id)
-            .receiver(self.receiver)
-            .performative(Performative::Inform)
-            .content("Hello from sender!")
-            .build();
-        
-        ctx.send_message(msg).await?;
-        Ok(())
-    }
-
-    async fn shutdown(&mut self, _ctx: &AgentContext) -> AgentResult<()> {
-        Ok(())
-    }
-}
-
-#[async_trait]
-impl Agent for ReceiverAgent {
-    fn id(&self) -> &AgentId {
-        &self.id
-    }
-
-    async fn initialize(&mut self, _ctx: &AgentContext) -> AgentResult<()> {
-        Ok(())
-    }
-
-    async fn execute(&mut self, ctx: &AgentContext) -> AgentResult<()> {
-        // Receive messages
-        while let Some(msg) = self.mailbox.try_receive() {
-            ctx.log_info(&format!("Received: {}", msg.content()));
-        }
-        Ok(())
-    }
-
-    async fn shutdown(&mut self, _ctx: &AgentContext) -> AgentResult<()> {
-        Ok(())
-    }
-}
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let runtime = Runtime::new(RuntimeConfig::default())?;
-    
-    // Create agents
-    let receiver_id = AgentId::new();
-    let receiver = ReceiverAgent {
-        id: receiver_id,
-        mailbox: runtime.create_mailbox(),
-    };
-    
-    let sender = SenderAgent {
-        id: AgentId::new(),
-        receiver: receiver_id,
-    };
-    
-    // Spawn agents
-    runtime.spawn(receiver).await?;
-    runtime.spawn(sender).await?;
-    
-    // Run system
-    runtime.run().await?;
-    
-    Ok(())
-}
-```
-
-### BDI Agent with Planning
-```rust
-use agentropic::prelude::*;
-
-struct DeliveryAgent {
-    id: AgentId,
-    beliefs: BeliefBase,
-    desires: DesireSet,
-    intentions: IntentionStack,
-}
-
-impl DeliveryAgent {
-    fn new() -> Self {
-        let mut beliefs = BeliefBase::new();
-        beliefs.add(Belief::fact("location", "warehouse"));
-        beliefs.add(Belief::fact("has_package", false));
-        
-        let mut desires = DesireSet::new();
-        desires.add(Desire::new(
-            Goal::achievement("deliver_package"),
-            1.0
-        ));
-        
-        Self {
-            id: AgentId::new(),
-            beliefs,
-            desires,
-            intentions: IntentionStack::new(),
-        }
-    }
-}
-
-#[async_trait]
-impl Agent for DeliveryAgent {
-    fn id(&self) -> &AgentId {
-        &self.id
-    }
-
-    async fn initialize(&mut self, ctx: &AgentContext) -> AgentResult<()> {
-        ctx.log_info("Delivery agent initialized");
-        Ok(())
-    }
-
-    async fn execute(&mut self, ctx: &AgentContext) -> AgentResult<()> {
-        // BDI reasoning cycle
-        
-        // 1. Update beliefs (perceive environment)
-        let sensor_data = ctx.read_sensors().await?;
-        self.beliefs.update_from_sensors(sensor_data);
-        
-        // 2. Select goals (deliberation)
-        let goal = self.desires.select_goal(&self.beliefs)?;
-        
-        // 3. Plan to achieve goal (means-ends reasoning)
-        let plan = self.plan_for_goal(&goal)?;
-        self.intentions.push(Intention::new(goal, plan));
-        
-        // 4. Execute current intention
-        if let Some(intention) = self.intentions.current() {
-            intention.execute_step(ctx).await?;
-        }
-        
-        Ok(())
-    }
-
-    async fn shutdown(&mut self, ctx: &AgentContext) -> AgentResult<()> {
-        ctx.log_info("Delivery agent shutting down");
-        Ok(())
-    }
-}
-```
-
-### Swarm Coordination
-```rust
-use agentropic::prelude::*;
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let runtime = Runtime::new(RuntimeConfig::default())?;
-    
-    // Create swarm of 50 drones
-    let drones: Vec<_> = (0..50)
-        .map(|_| DroneAgent::new())
-        .collect();
-    
-    // Configure swarm behavior
-    let swarm = Swarm::builder()
-        .agents(drones)
-        .behavior(SwarmBehavior::Flocking)
-        .parameter("separation_distance", 2.0)
-        .parameter("alignment_weight", 1.0)
-        .parameter("cohesion_weight", 1.0)
-        .goal(Vector3::new(100.0, 100.0, 0.0))
-        .build();
-    
-    // Deploy swarm
-    let handle = runtime.spawn_swarm(swarm).await?;
-    
-    // Monitor progress
-    while !handle.goal_reached().await? {
-        let progress = handle.progress().await?;
-        println!("Swarm progress: {:.1}%", progress * 100.0);
-        tokio::time::sleep(Duration::from_secs(1)).await;
-    }
-    
-    println!("Swarm reached goal!");
-    
-    Ok(())
-}
+// Everything available from one crate!
 ```
 
 ---
 
 ## 🏗️ Architecture
 
-Agentropic is organized into modular crates:
+Agentropic is organized into modular crates for flexibility and maintainability:
 ```
 ┌─────────────────────────────────────────────────────┐
 │              Agentropic (Facade)                    │
@@ -360,53 +158,33 @@ Agentropic is organized into modular crates:
 └──────────────┘  └──────────────┘  └──────────────┘
 ```
 
-### Crate Descriptions
-
-| Crate | Purpose | When to Use Directly |
-|-------|---------|---------------------|
-| **agentropic** | Facade, re-exports everything | Default choice, easiest to use |
-| **agentropic-core** | Agent primitives, traits | Building custom frameworks |
-| **agentropic-messaging** | Communication protocols | Advanced messaging patterns |
-| **agentropic-cognition** | Reasoning and planning | Custom cognitive architectures |
-| **agentropic-patterns** | Multi-agent patterns | Specific coordination patterns |
-| **agentropic-runtime** | Execution engine | Custom runtime configurations |
-| **agentropic-deploy** | Deployment tools | Production operations |
-| **agentropic-examples** | Example applications | Learning and reference |
-| **agentropic-docs** | Documentation | Reading and contributing docs |
-| **agentropic-tools** | Testing and benchmarks | Development and testing |
-
 ---
 
-## 🎓 Learning Path
+## 🎓 Why Agentropic?
 
-### Beginner
+### Rust-First Design
 
-1. **Read the [Getting Started Guide](https://docs.agentropic.org/getting-started)**
-2. **Build your [First Agent](https://docs.agentropic.org/tutorials/beginner/hello-world)**
-3. **Explore [Core Concepts](https://docs.agentropic.org/concepts)**
+Unlike Python-based agent frameworks, Agentropic leverages Rust's:
+- 🚀 **Performance** - Native speed, zero-cost abstractions
+- 🛡️ **Safety** - Memory-safe, thread-safe by design
+- 🔄 **Concurrency** - Fearless async/await
+- 📦 **Tooling** - Cargo, clippy, and the Rust ecosystem
 
-### Intermediate
+### Production-Ready from Day One
 
-4. **Learn [Agent Communication](https://docs.agentropic.org/guides/communication)**
-5. **Build [Multi-Agent Systems](https://docs.agentropic.org/tutorials/intermediate/multi-agent-system)**
-6. **Understand [BDI Architecture](https://docs.agentropic.org/guides/cognition/bdi-architecture)**
+- ⚡ Built-in runtime with scheduling and isolation
+- 📊 Comprehensive testing and benchmarking tools
+- 🚀 Deployment tooling and orchestration
+- 📈 Monitoring and observability
 
-### Advanced
+### Academic Foundations, Practical Implementation
 
-7. **Master [Organizational Patterns](https://docs.agentropic.org/guides/patterns)**
-8. **Deploy to [Production](https://docs.agentropic.org/guides/deployment/production)**
-9. **Build [Domain-Specific Systems](https://docs.agentropic.org/use-cases)**
-
----
-
-## 📖 Documentation
-
-- **[Getting Started Guide](https://docs.agentropic.org/getting-started)** - Quick introduction
-- **[API Documentation](https://docs.rs/agentropic)** - Complete API reference
-- **[Tutorials](https://docs.agentropic.org/tutorials)** - Step-by-step guides
-- **[Architecture Guide](https://docs.agentropic.org/architecture)** - System design
-- **[Examples Repository](https://github.com/agentropic/agentropic-examples)** - Code examples
-- **[Best Practices](https://docs.agentropic.org/best-practices)** - Production guidelines
+Based on decades of multi-agent systems research:
+- BDI Architecture (Rao & Georgeff)
+- FIPA Agent Communication Language
+- Contract Net Protocol
+- Market-Based Control
+- Swarm Intelligence
 
 ---
 
@@ -414,86 +192,111 @@ Agentropic is organized into modular crates:
 
 Agentropic is ideal for:
 
-### Financial Systems
-- **Algorithmic Trading** - Multi-strategy trading with risk management
-- **Portfolio Management** - Autonomous asset allocation
-- **Market Making** - Automated liquidity provision
+### ⛓️ Blockchain Network
+- Agent-Oriented Programming(AOP)
+- Agentic App Development
+- Agentic App Deployment
 
-### Robotics & IoT
-- **Swarm Robotics** - Coordinated robot fleets
-- **Sensor Networks** - Distributed sensing and processing
-- **Autonomous Vehicles** - Fleet coordination
+### 💰 Financial Systems
+- Algorithmic trading with risk management
+- Portfolio management and optimization
+- Market making and liquidity provision
 
-### Enterprise Applications
-- **Workflow Automation** - Intelligent process orchestration
-- **Supply Chain** - Multi-party coordination
-- **E-commerce** - Order processing and fulfillment
+### 🤖 Robotics & IoT
+- Swarm robotics coordination
+- Distributed sensor networks
+- Autonomous vehicle fleets
 
-### Gaming & Simulation
-- **Game AI** - Intelligent NPCs and opponents
-- **Strategy Games** - Multi-agent decision-making
-- **Simulations** - Complex system modeling
+### 🏢 Enterprise Applications
+- Workflow automation
+- Supply chain coordination
+- Multi-party business processes
 
-### Smart Systems
-- **Smart Homes** - Home automation and optimization
-- **Energy Management** - Grid optimization
-- **Resource Allocation** - Dynamic resource distribution
+### 🎮 Gaming & Simulation
+- Intelligent NPCs
+- Strategy game AI
+- Complex system modeling
 
----
-
-## 🛠️ CLI Tools
-
-Install the Agentropic CLI:
-```bash
-cargo install agentropic-deploy
-```
-
-Common commands:
-```bash
-# Initialize new project
-agentropic init my-agent-system
-
-# Build agents
-agentropic build
-
-# Run locally
-agentropic run
-
-# Deploy to production
-agentropic deploy --env production
-
-# Monitor agents
-agentropic status
-agentropic logs --follow
-
-# Scale agents
-agentropic scale worker-agent --replicas 10
-```
+### 🏠 Smart Systems
+- Home automation
+- Energy grid optimization
+- Resource allocation
 
 ---
 
-## 🧪 Testing
+## 📖 Documentation
 
-Comprehensive testing utilities:
-```rust
-use agentropic::prelude::*;
-use agentropic_tools::testing::*;
+- **[GitHub Organization](https://github.com/agentropic)** - All repositories
+- **[Getting Started Guide](https://github.com/agentropic/agentropic-examples)** - Coming soon
+- **[API Documentation](https://docs.rs/agentropic)** - Coming soon
+- **[Architecture Guide](https://github.com/agentropic/agentropic-docs)** - Coming soon
 
-#[tokio::test]
-async fn test_agent_behavior() {
-    let mut test_runtime = TestRuntime::new();
-    let agent = MyAgent::new();
-    
-    let handle = test_runtime.spawn(agent).await.unwrap();
-    
-    // Send test message
-    test_runtime.send_message(test_message()).await.unwrap();
-    
-    // Assert behavior
-    let response = test_runtime.wait_for_message(Duration::from_secs(1)).await.unwrap();
-    assert_eq!(response.performative(), Performative::Inform);
-}
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Agentropic is under active development and we'd love your help.
+
+### Ways to Contribute
+
+- 🐛 **Report bugs** - Open issues for bugs you find
+- 💡 **Suggest features** - Share ideas for improvements
+- 📖 **Improve documentation** - Help others understand the project
+- 💻 **Submit code** - Contribute to any of the crates
+- 🧪 **Add tests** - Improve test coverage
+- 📢 **Spread the word** - Star the repo, share with others
+
+### Development Setup
+```bash
+# Clone all repositories
+git clone https://github.com/agentropic/agentropic-core.git
+git clone https://github.com/agentropic/agentropic-messaging.git
+# ... etc
+
+# Build and test
+cd agentropic-core
+cargo build
+cargo test
 ```
+
+### Contribution Guidelines
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+---
+
+## 🗺️ Roadmap
+
+### Phase 1: Foundation 
+- ✅ Core agent primitives and traits
+- ✅ Message passing and communication
+- 🔄 BDI cognitive architecture
+- 🔄 Basic planning and reasoning
+
+### Phase 2: Intelligence 
+- ⏳ Advanced planning (HTN, PDDL)
+- ⏳ Decision-making frameworks
+- ⏳ Learning and adaptation
+
+### Phase 3: Coordination 
+- ⏳ Multi-agent patterns
+- ⏳ Organizational structures
+- ⏳ Market-based coordination
+
+### Phase 4: Production 
+- ⏳ High-performance runtime
+- ⏳ Deployment tools and CLI
+- ⏳ Monitoring and observability
+
+### Phase 5: Ecosystem 
+- ⏳ Comprehensive examples
+- ⏳ Full documentation site
+- ⏳ Testing and benchmarking suite
+
+### Version 1.0 
+- ⏳ Stable API
+- ⏳ Production-hardened
+- ⏳ Enterprise-ready
 
 ---
 
@@ -501,60 +304,12 @@ async fn test_agent_behavior() {
 
 Agentropic is built for performance:
 
-- **Agent spawn**: < 1ms
-- **Message passing**: < 10μs latency
-- **Throughput**: 100,000+ messages/second
-- **Memory**: ~50KB per agent baseline
-- **Scaling**: Tested with 10,000+ concurrent agents
+- **Agent spawn latency**: < 1ms (target)
+- **Message passing**: < 10μs latency (target)
+- **Throughput**: 100,000+ messages/second (target)
+- **Memory**: ~50KB per agent baseline (target)
 
----
-
-## 🌍 Community
-
-- **GitHub**: [github.com/agentropic](https://github.com/agentropic)
-- **Discord**: [discord.gg/agentropic](https://discord.gg/agentropic)
-- **Discussions**: [GitHub Discussions](https://github.com/agentropic/discussions)
-- **Blog**: [blog.agentropic.org](https://blog.agentropic.org)
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-### Ways to Contribute
-
-- 🐛 Report bugs and issues
-- 💡 Suggest features and improvements
-- 📖 Improve documentation
-- 💻 Submit code contributions
-- 🧪 Add tests and examples
-- 📢 Share your projects
-
----
-
-## 🗺️ Roadmap
-
-### Version 0.1 (Current)
-- ✅ Core agent primitives
-- ✅ Message passing
-- ✅ BDI architecture
-- ✅ Basic patterns
-- ✅ Runtime execution
-
-### Version 0.2 (Next)
-- 🔄 Distributed runtime
-- 🔄 Advanced patterns
-- 🔄 Performance optimizations
-- 🔄 Enhanced tooling
-- 🔄 More examples
-
-### Version 1.0 (Future)
-- 📋 Stable API
-- 📋 Production-hardened
-- 📋 Complete documentation
-- 📋 Enterprise features
-- 📋 Cloud-native deployment
+*Benchmarks coming soon as crates are completed*
 
 ---
 
@@ -577,18 +332,26 @@ Unless you explicitly state otherwise, any contribution intentionally submitted 
 
 Agentropic is inspired by decades of research in multi-agent systems:
 
-- **FIPA Standards** - Agent communication
+- **FIPA Standards** - Agent communication protocols
 - **BDI Architecture** - Rao & Georgeff
-- **Swarm Intelligence** - Kennedy & Eberhart
+- **Swarm Intelligence** - Kennedy & Eberhart  
 - **Market-Based Control** - Clearwater
 - **Contract Net Protocol** - Smith
 - **Erlang/OTP** - Fault tolerance patterns
 
 ---
 
-## ⭐ Star History
+## 🌟 Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=agentropic/agentropic&type=Date)](https://star-history.com/#agentropic/agentropic&Date)
+
+---
+
+## 📬 Contact
+
+- **GitHub**: [@agentropic](https://github.com/agentropic)
+- **Issues**: [GitHub Issues](https://github.com/agentropic/agentropic/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/agentropic/agentropic/discussions)
 
 ---
 
@@ -596,6 +359,8 @@ Agentropic is inspired by decades of research in multi-agent systems:
 
 **Build intelligent, autonomous agents in Rust with Agentropic**
 
-[Get Started](https://docs.agentropic.org/getting-started) • [Documentation](https://docs.agentropic.org) • [Examples](https://github.com/agentropic/agentropic-examples) • [Community](https://discord.gg/agentropic)
+[View Organization](https://github.com/agentropic) • [Documentation](https://github.com/agentropic/agentropic-docs) • [Examples](https://github.com/agentropic/agentropic-examples)
+
+**Made with 🦀 by the Agentropic team**
 
 </div>
