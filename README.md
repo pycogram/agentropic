@@ -31,15 +31,15 @@ Agentropic enables you to build software systems composed of **autonomous agents
 |-------|--------|-------------|------------|
 | **agentropic-core** | ✅ Complete | Agent primitives, traits, lifecycle | [Link](https://github.com/agentropic/agentropic-core) |
 | **agentropic-messaging** | ✅ Complete | Communication protocols, routing, ACL | [Link](https://github.com/agentropic/agentropic-messaging) |
-| **agentropic-cognition** | 🔄 In Progress | Reasoning, planning, BDI, decision-making | [Link](https://github.com/agentropic/agentropic-cognition) |
-| **agentropic-patterns** | ⏳ Planned | Multi-agent patterns (hierarchy, swarm, market) | [Link](https://github.com/agentropic/agentropic-patterns) |
+| **agentropic-cognition** | ✅ Complete | Reasoning, planning, BDI, decision-making | [Link](https://github.com/agentropic/agentropic-cognition) |
+| **agentropic-patterns** | 🔄 In Progress | Multi-agent patterns (hierarchy, swarm, market) | [Link](https://github.com/agentropic/agentropic-patterns) |
 | **agentropic-runtime** | ⏳ Planned | Execution engine, scheduler, isolation | [Link](https://github.com/agentropic/agentropic-runtime) |
 | **agentropic-deploy** | ⏳ Planned | Deployment tools, orchestration, CLI | [Link](https://github.com/agentropic/agentropic-deploy) |
 | **agentropic-tools** | ⏳ Planned | Testing frameworks, benchmarks, utilities | [Link](https://github.com/agentropic/agentropic-tools) |
 | **agentropic-examples** | ⏳ Planned | Example applications and tutorials | [Link](https://github.com/agentropic/agentropic-examples) |
 | **agentropic-docs** | ⏳ Planned | Documentation site | [Link](https://github.com/agentropic/agentropic-docs) |
 
-**Overall Progress:** 20% Complete 🚀
+**Overall Progress:** 30% Complete 🚀
 
 ---
 
