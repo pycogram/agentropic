@@ -13,64 +13,64 @@ Agentropic is a comprehensive framework for building autonomous, intelligent mul
 
 ---
 
-## 🎯 What is Agentropic?
+## What is Agentropic?
 
 Agentropic enables you to build software systems composed of **autonomous agents** that:
 
-- 🤖 **Think** - Use BDI (Belief-Desire-Intention) cognitive architecture for reasoning and planning
-- 💬 **Communicate** - Exchange messages using standardized Agent Communication Language (ACL)
-- 🤝 **Coordinate** - Work together using proven multi-agent patterns (hierarchy, swarm, market-based)
-- ⚡ **Execute** - Run efficiently with isolation, scheduling, and fault tolerance
-- 🚀 **Deploy** - Ship to production with comprehensive tooling and orchestration
+- **Think** - Use BDI (Belief-Desire-Intention) cognitive architecture for reasoning and planning
+- **Communicate** - Exchange messages using standardized Agent Communication Language (ACL)
+- **Coordinate** - Work together using proven multi-agent patterns (hierarchy, swarm, market-based)
+- **Execute** - Run efficiently with isolation, scheduling, and fault tolerance
+- **Deploy** - Ship to production with comprehensive tooling and orchestration
 
 ---
 
-## 📊 Project Progress
+## Project Progress
 
 | Crate | Status | Description | Repository |
 |-------|--------|-------------|------------|
-| **agentropic-core** | ✅ Complete | Agent primitives, traits, lifecycle | [Link](https://github.com/agentropic/agentropic-core) |
-| **agentropic-messaging** | ✅ Complete | Communication protocols, routing, ACL | [Link](https://github.com/agentropic/agentropic-messaging) |
-| **agentropic-cognition** | ✅ Complete | Reasoning, planning, BDI, decision-making | [Link](https://github.com/agentropic/agentropic-cognition) |
-| **agentropic-patterns** | 🔄 In Progress | Multi-agent patterns (hierarchy, swarm, market) | [Link](https://github.com/agentropic/agentropic-patterns) |
-| **agentropic-runtime** | ⏳ Planned | Execution engine, scheduler, isolation | [Link](https://github.com/agentropic/agentropic-runtime) |
-| **agentropic-deploy** | ⏳ Planned | Deployment tools, orchestration, CLI | [Link](https://github.com/agentropic/agentropic-deploy) |
-| **agentropic-tools** | ⏳ Planned | Testing frameworks, benchmarks, utilities | [Link](https://github.com/agentropic/agentropic-tools) |
-| **agentropic-examples** | ⏳ Planned | Example applications and tutorials | [Link](https://github.com/agentropic/agentropic-examples) |
-| **agentropic-docs** | ⏳ Planned | Documentation site | [Link](https://github.com/agentropic/agentropic-docs) |
+| **agentropic-core** | Complete | Agent primitives, traits, lifecycle | [Link](https://github.com/agentropic/agentropic-core) |
+| **agentropic-messaging** | Complete | Communication protocols, routing, ACL | [Link](https://github.com/agentropic/agentropic-messaging) |
+| **agentropic-cognition** | Complete | Reasoning, planning, BDI, decision-making | [Link](https://github.com/agentropic/agentropic-cognition) |
+| **agentropic-patterns** | Complete | Multi-agent patterns (hierarchy, swarm, market) | [Link](https://github.com/agentropic/agentropic-patterns) |
+| **agentropic-runtime** | In Progress | Execution engine, scheduler, isolation | [Link](https://github.com/agentropic/agentropic-runtime) |
+| **agentropic-deploy** | Planned | Deployment tools, orchestration, CLI | [Link](https://github.com/agentropic/agentropic-deploy) |
+| **agentropic-tools** | Planned | Testing frameworks, benchmarks, utilities | [Link](https://github.com/agentropic/agentropic-tools) |
+| **agentropic-examples** | Planned | Example applications and tutorials | [Link](https://github.com/agentropic/agentropic-examples) |
+| **agentropic-docs** | Planned | Documentation site | [Link](https://github.com/agentropic/agentropic-docs) |
 
-**Overall Progress:** 30% Complete 🚀
-
----
-
-## ✨ Features
-
-### Completed ✅
-
-- 🤖 **Agent Primitives** - Clean abstractions for autonomous agents
-- 🆔 **Identity System** - UUID-based agent identification
-- 💬 **Message Passing** - FIPA-inspired communication protocols
-- 📮 **Mailboxes & Routing** - Efficient message delivery
-- 🎭 **Performatives** - Speech acts (Inform, Request, Query, etc.)
-
-### In Development 🔄
-
-- 🧠 **BDI Architecture** - Belief-Desire-Intention cognitive model
-- 📊 **Planning** - Goal-oriented action planning (STRIPS, HTN)
-- 🤔 **Reasoning** - Logical inference and rule-based reasoning
-- 🎯 **Decision-Making** - Utility-based and probabilistic decisions
-
-### Coming Soon ⏳
-
-- 🏗️ **Organizational Patterns** - Hierarchy, teams, swarms, markets
-- ⚡ **High-Performance Runtime** - Async execution with scheduling
-- 🛡️ **Isolation** - Resource limits and sandboxing
-- 🚀 **Production Deployment** - CLI tools, orchestration, monitoring
-- 🧪 **Testing & Tools** - Comprehensive testing and benchmarking
+**Overall Progress:** 40% Complete 
 
 ---
 
-## 🚀 Quick Start
+## Features
+
+### Completed 
+
+-  **Agent Primitives** - Clean abstractions for autonomous agents
+-  **Identity System** - UUID-based agent identification
+-  **Message Passing** - FIPA-inspired communication protocols
+-  **Mailboxes & Routing** - Efficient message delivery
+-  **Performatives** - Speech acts (Inform, Request, Query, etc.)
+
+### In Development 
+
+-  **BDI Architecture** - Belief-Desire-Intention cognitive model
+-  **Planning** - Goal-oriented action planning (STRIPS, HTN)
+-  **Reasoning** - Logical inference and rule-based reasoning
+-  **Decision-Making** - Utility-based and probabilistic decisions
+
+### Coming Soon 
+
+-  **Organizational Patterns** - Hierarchy, teams, swarms, markets
+-  **High-Performance Runtime** - Async execution with scheduling
+-  **Isolation** - Resource limits and sandboxing
+-  **Production Deployment** - CLI tools, orchestration, monitoring
+-  **Testing & Tools** - Comprehensive testing and benchmarking
+
+---
+
+##  Quick Start
 
 > **Note:** Currently, you need to use individual crates. The unified `agentropic` facade will be available once more components are complete.
 
@@ -125,7 +125,7 @@ use agentropic::prelude::*;
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 Agentropic is organized into modular crates for flexibility and maintainability:
 ```
@@ -160,22 +160,22 @@ Agentropic is organized into modular crates for flexibility and maintainability:
 
 ---
 
-## 🎓 Why Agentropic?
+##  Why Agentropic?
 
 ### Rust-First Design
 
 Unlike Python-based agent frameworks, Agentropic leverages Rust's:
-- 🚀 **Performance** - Native speed, zero-cost abstractions
-- 🛡️ **Safety** - Memory-safe, thread-safe by design
-- 🔄 **Concurrency** - Fearless async/await
-- 📦 **Tooling** - Cargo, clippy, and the Rust ecosystem
+-  **Performance** - Native speed, zero-cost abstractions
+-  **Safety** - Memory-safe, thread-safe by design
+-  **Concurrency** - Fearless async/await
+-  **Tooling** - Cargo, clippy, and the Rust ecosystem
 
 ### Production-Ready from Day One
 
-- ⚡ Built-in runtime with scheduling and isolation
-- 📊 Comprehensive testing and benchmarking tools
-- 🚀 Deployment tooling and orchestration
-- 📈 Monitoring and observability
+-  Built-in runtime with scheduling and isolation
+-  Comprehensive testing and benchmarking tools
+-  Deployment tooling and orchestration
+-  Monitoring and observability
 
 ### Academic Foundations, Practical Implementation
 
@@ -188,43 +188,43 @@ Based on decades of multi-agent systems research:
 
 ---
 
-## 🎯 Use Cases
+##  Use Cases
 
 Agentropic is ideal for:
 
-### ⛓️ Blockchain Network
+###  Blockchain Network
 - Agent-oriented programming (AOP) for smart contracts
 - Agentic dApp development and deployment
 - Coordination and automation across blockchain nodes
 
-### 💰 Financial Systems
+###  Financial Systems
 - Algorithmic trading with risk management
 - Portfolio management and optimization
 - Market making and liquidity provision
 
-### 🤖 Robotics & IoT
+###  Robotics & IoT
 - Swarm robotics coordination
 - Distributed sensor networks
 - Autonomous vehicle fleets
 
-### 🏢 Enterprise Applications
+###  Enterprise Applications
 - Workflow automation
 - Supply chain coordination
 - Multi-party business processes
 
-### 🎮 Gaming & Simulation
+###  Gaming & Simulation
 - Intelligent NPCs
 - Strategy game AI
 - Complex system modeling
 
-### 🏠 Smart Systems
+###  Smart Systems
 - Home automation
 - Energy grid optimization
 - Resource allocation
 
 ---
 
-## 📖 Documentation
+##  Documentation
 
 - **[GitHub Organization](https://github.com/agentropic)** - All repositories
 - **[Getting Started Guide](https://github.com/agentropic/agentropic-examples)** - Coming soon
@@ -233,18 +233,18 @@ Agentropic is ideal for:
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! Agentropic is under active development and we'd love your help.
 
 ### Ways to Contribute
 
-- 🐛 **Report bugs** - Open issues for bugs you find
-- 💡 **Suggest features** - Share ideas for improvements
-- 📖 **Improve documentation** - Help others understand the project
-- 💻 **Submit code** - Contribute to any of the crates
-- 🧪 **Add tests** - Improve test coverage
-- 📢 **Spread the word** - Star the repo, share with others
+-  **Report bugs** - Open issues for bugs you find
+-  **Suggest features** - Share ideas for improvements
+-  **Improve documentation** - Help others understand the project
+-  **Submit code** - Contribute to any of the crates
+-  **Add tests** - Improve test coverage
+-  **Spread the word** - Star the repo, share with others
 
 ### Development Setup
 ```bash
@@ -265,42 +265,42 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ---
 
-## 🗺️ Roadmap
+##  Roadmap
 
 ### Phase 1: Foundation 
-- ✅ Core agent primitives and traits
-- ✅ Message passing and communication
-- 🔄 BDI cognitive architecture
-- 🔄 Basic planning and reasoning
+-  Core agent primitives and traits
+-  Message passing and communication
+-  BDI cognitive architecture
+-  Basic planning and reasoning
 
 ### Phase 2: Intelligence 
-- ⏳ Advanced planning (HTN, PDDL)
-- ⏳ Decision-making frameworks
-- ⏳ Learning and adaptation
+-  Advanced planning (HTN, PDDL)
+-  Decision-making frameworks
+-  Learning and adaptation
 
 ### Phase 3: Coordination 
-- ⏳ Multi-agent patterns
-- ⏳ Organizational structures
-- ⏳ Market-based coordination
+-  Multi-agent patterns
+-  Organizational structures
+-  Market-based coordination
 
 ### Phase 4: Production 
-- ⏳ High-performance runtime
-- ⏳ Deployment tools and CLI
-- ⏳ Monitoring and observability
+-  High-performance runtime
+-  Deployment tools and CLI
+-  Monitoring and observability
 
 ### Phase 5: Ecosystem 
-- ⏳ Comprehensive examples
-- ⏳ Full documentation site
-- ⏳ Testing and benchmarking suite
+-  Comprehensive examples
+-  Full documentation site
+-  Testing and benchmarking suite
 
 ### Version 1.0 
-- ⏳ Stable API
-- ⏳ Production-hardened
-- ⏳ Enterprise-ready
+-  Stable API
+-  Production-hardened
+-  Enterprise-ready
 
 ---
 
-## 📊 Performance
+##  Performance
 
 Agentropic is built for performance:
 
@@ -313,7 +313,7 @@ Agentropic is built for performance:
 
 ---
 
-## 📜 License
+## License
 
 Licensed under either of:
 
@@ -328,7 +328,7 @@ Unless you explicitly state otherwise, any contribution intentionally submitted 
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Agentropic is inspired by decades of research in multi-agent systems:
 
@@ -341,13 +341,7 @@ Agentropic is inspired by decades of research in multi-agent systems:
 
 ---
 
-## 🌟 Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=agentropic/agentropic&type=Date)](https://star-history.com/#agentropic/agentropic&Date)
-
----
-
-## 📬 Contact
+## Contact
 
 - **GitHub**: [@agentropic](https://github.com/agentropic)
 - **Issues**: [GitHub Issues](https://github.com/agentropic/agentropic/issues)
