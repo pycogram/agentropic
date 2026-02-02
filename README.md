@@ -11,7 +11,6 @@ Agentropic is a comprehensive framework for building autonomous, intelligent mul
 
 > ⚠️ **Status: Active Development** - Agentropic is currently under active development. APIs may change before the 1.0 release.
 
-> **CA** - **4UkuRcM22CGCCrB7jw3VejE93Qu77vkLRQ3tgVrBpump**
 ---
 
 ## What is Agentropic?
