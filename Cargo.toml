@@ -12,12 +12,11 @@ categories = ["simulation", "algorithms"]
 readme = "README.md"
 
 [dependencies]
-# Core crates
-agentropic-core = { version = "0.1.0", path = "../agentropic-core" }
-agentropic-messaging = { version = "0.1.0", path = "../agentropic-messaging" }
-agentropic-cognition = { version = "0.1.0", path = "../agentropic-cognition" }
-agentropic-patterns = { version = "0.1.0", path = "../agentropic-patterns" }
-agentropic-runtime = { version = "0.1.0", path = "../agentropic-runtime" }
+agentropic-core = { git = "https://github.com/agentropic/agentropic-core", branch = "main" }
+agentropic-messaging = { git = "https://github.com/agentropic/agentropic-messaging", branch = "main" }
+agentropic-cognition = { git = "https://github.com/agentropic/agentropic-cognition", branch = "main" }
+agentropic-patterns = { git = "https://github.com/agentropic/agentropic-patterns", branch = "main" }
+agentropic-runtime = { git = "https://github.com/agentropic/agentropic-runtime", branch = "main" }
 
 [dev-dependencies]
 tokio = { version = "1.0", features = ["full"] }
