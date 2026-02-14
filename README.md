@@ -1,6 +1,3 @@
-<div align="center">
-  <img src="public/assets/ag-logo.png" alt="Agentropic Logo" width="200" />
-</div>
 
 # Agentropic
 
